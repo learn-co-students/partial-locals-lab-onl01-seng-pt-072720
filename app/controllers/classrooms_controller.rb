@@ -6,5 +6,6 @@ class ClassroomsController < ApplicationController
 
   def index
     @classrooms = Classroom.all
+    # @student = Student.where('name LIKE ?', "#{params[:query].strip}")
   end
 end
