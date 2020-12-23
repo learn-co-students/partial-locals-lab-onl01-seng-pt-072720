@@ -21,7 +21,12 @@ class StudentsController < ApplicationController
   end
 
   def index
-    @students = Student.all
+    query = params[:query].gsub(/[^0-9a-z ]/i, '')
+    if query == ""
+      @students = Student.all
+    else
+      @students = Student.search(query)
+    end
   end
 
   def student_params
